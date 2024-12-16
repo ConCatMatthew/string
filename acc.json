@@ -1,7 +1,4 @@
-[
-  {
-    "username": "enderss",
-    "password": "ender1313",
-    "email": "ender@ender.com"
-  }
-]
+while true do
+  print("hi chat")
+  wait(1)
+end
