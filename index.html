@@ -1,6 +1,32 @@
-<script type="lua">
-        while true do
-            print("text try test lol xd")
-            wait(0.1)
-        end
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kick Player</title>
+</head>
+<body>
+    <h1>Kick Player</h1>
+    <form id="kickForm">
+        <input type="text" id="playerName" placeholder="Enter player name" required>
+        <button type="button" id="kickButton">Kick Player</button>
+    </form>
+
+    <script type="text/javascript">
+        document.getElementById('kickButton').addEventListener('click', function() {
+            const playerName = document.getElementById('playerName').value;
+            if (playerName) {
+                // Send the player name and kickPlayer flag to the server using query params
+                fetch(`https://yourusername.github.io/kick-player/kick?kickPlayer=true&name=${playerName}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Kick result:', data);
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                alert("Please enter a player name");
+            }
+        });
+    </script>
+</body>
+</html>
