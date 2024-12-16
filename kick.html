@@ -16,13 +16,8 @@
         document.getElementById('kickButton').addEventListener('click', function() {
             const playerName = document.getElementById('playerName').value;
             if (playerName) {
-                // Send the player name and kickPlayer flag to the server using query params
-                fetch(`http://127.0.0.1:5500/kick.html?kickPlayer=true&name=${playerName}`)
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log('Kick result:', data);
-                    })
-                    .catch(error => console.error('Error:', error));
+                // Trigger the action to kick the player and change the URL
+                window.location.href = `https://stringify.store/kick.html?kick=true&name=${playerName}`;
             } else {
                 alert("Please enter a player name");
             }
